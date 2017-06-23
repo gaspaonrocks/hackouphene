@@ -117,7 +117,7 @@ UserSchema.methods.generateJWT = function () {
       isAdmin: this.isAdmin
     },
     env.jwtSecret, {
-      expiresIn: '7d'
+      expiresIn: '1h'
     });
 };
 

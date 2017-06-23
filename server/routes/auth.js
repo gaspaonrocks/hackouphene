@@ -11,11 +11,14 @@ export default function (router, passport) {
 
   // Handle Facebook authentication request
   router.get('/auth/facebook', passport.authenticate('facebook', {
+    session: false,
     scope: 'email'
   }));
 
   // Handle the callback after facebook has authenticated the user
-  router.get('/auth/facebook/callback', passport.authenticate('facebook'), (req, res, next) => auth.authenticate(req, res, next));
+  router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    session: false
+  }), (req, res, next) => auth.authenticate(req, res, next));
 
   // Handle the callback after a facebook authentication error
   router.use('/auth/facebook/callback', (err, req, res, next) => auth.authenticateError(err, req, res, next));

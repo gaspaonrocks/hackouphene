@@ -8,7 +8,9 @@ class AuthController {
   // Authenticate user using our "LocalStrategy" in passport.js
   local(passport, req, res, next) {
     // Give passport a custom callback in order to be able to manage the request return code/token
-    return passport.authenticate('local', (err, user, info) => {
+    return passport.authenticate('local', {
+      session: false
+    }, (err, user, info) => {
       if (err || !user) {
         res.status(401).json(err || info || 'Incorrect user email or password');
       } else {
