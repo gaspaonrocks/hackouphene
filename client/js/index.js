@@ -5,6 +5,7 @@ import uiRouter from 'angular-ui-router';
 import messages from 'angular-messages';
 import material from 'angular-material';
 import css from 'angular-css';
+import youtubenode from 'youtube-node';
 
 import 'angular-material/angular-material.css';
 import 'mdi/css/materialdesignicons.css';
@@ -14,11 +15,12 @@ import components from './components';
 import services from './services';
 import config from './config';
 
-let app = angular.module('meanApp', [
+let app = angular.module('youtubeApp', [
   uiRouter,
   material,
   messages,
   css,
+  youtubenode,
   components,
   services
 ]);

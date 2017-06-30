@@ -6,6 +6,7 @@ import jwt from 'express-jwt';
 import settings from '../utilities/settings';
 import setUsersRoutes from './users';
 import setAuthRoutes from './auth';
+import setYTRoutes from './youtube';
 
 /**
  * Configure server API routes.
@@ -26,6 +27,7 @@ export default function (passport) {
 
   setUsersRoutes(router, authCheck);
   setAuthRoutes(router, passport);
+  setYTRoutes(router, passport);
 
   return router;
 }
