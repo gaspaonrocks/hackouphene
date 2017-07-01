@@ -7,6 +7,7 @@
     <a href="" ng-click="$ctrl.logout()" ng-if="$ctrl.user">Sign out</a>
   </div>
 </md-toolbar>
+
 <md-content class="md-padding">
   <md-nav-bar md-selected-nav-item="$ctrl.selectedTab" aria-label="menu">
     <md-nav-item md-nav-sref="home" sref-opts="{reload:true, notify:true}" name="home">Home</md-nav-item>
@@ -19,3 +20,15 @@
     </div>
   </md-content>
 </md-content>
+
+<md-toolbar class="md-toolbar-tools" layout-align="center-center" ng-if="$ctrl.user">
+  <div layout="row">
+    <md-content id="playerCtrl">
+      <md-icon><i class="fa fa-step-backward" aria-hidden="true"></i></md-icon>
+      <md-icon><i class="fa fa-play" aria-hidden="true"></i></md-icon>
+      <md-icon><i class="fa fa-pause" aria-hidden="true"></i></md-icon>
+      <md-icon><i class="fa fa-step-forward" aria-hidden="true"></i></md-icon>
+      <md-icon><i class="fa fa-youtube-play" aria-hidden="true"></i></md-icon>
+    </md-content>
+  </div>
+</md-toolbar>

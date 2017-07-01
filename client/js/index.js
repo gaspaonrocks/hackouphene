@@ -28,6 +28,7 @@ let app = angular.module('youtubeApp', [
 app.constant('CONSTANTS', config.constants);
 app.config(config.storage);
 app.config(config.routes);
+app.config(config.icons);
 app.run(config.run);
 
 export default app;
