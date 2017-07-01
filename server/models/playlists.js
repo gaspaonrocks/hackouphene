@@ -5,32 +5,25 @@ import strings from '../utilities/strings';
 import mongoose from 'mongoose';
 
 let PlaylistSchema = new mongoose.Schema({
-  email: {
+  name: {
     type: String,
     required: true,
     unique: true
   },
-  firstName: {
+  username: {
     type: String,
     required: true
   },
-  lastName: {
-    type: String,
+  tags: {
+    type: Array,
     required: true
   },
-  isAdmin: {
+  songs: {
+    type: Array
+  },
+  private: {
     type: Boolean,
-    default: false
-  },
-  password: {
-    type: String,
-    required: true,
-    select: false
-  },
-  facebook: {
-    id: String,
-    token: String,
-    photo: String
+    required: true
   }
 }, {
   timestamps: true

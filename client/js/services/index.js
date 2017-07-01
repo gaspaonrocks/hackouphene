@@ -6,6 +6,7 @@ import localStorage from 'angular-local-storage';
 
 import usersService from './users';
 import authService from './auth';
+import youtubeService from './youtube';
 
 let services = angular.module('appServices', [
   localStorage,
@@ -14,6 +15,7 @@ let services = angular.module('appServices', [
 
 services
   .factory('UsersService', usersService)
+  .factory('YoutubeService', youtubeService)
   .service('AuthService', authService);
 
 export default services.name;
