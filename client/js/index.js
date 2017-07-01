@@ -5,7 +5,7 @@ import uiRouter from 'angular-ui-router';
 import messages from 'angular-messages';
 import material from 'angular-material';
 import css from 'angular-css';
-import youtubenode from 'youtube-node';
+// import youtubenode from 'youtube-node';
 
 import 'angular-material/angular-material.css';
 import 'mdi/css/materialdesignicons.css';
@@ -20,7 +20,7 @@ let app = angular.module('youtubeApp', [
   material,
   messages,
   css,
-  youtubenode,
+  // youtubenode,
   components,
   services
 ]);

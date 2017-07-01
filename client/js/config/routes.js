@@ -13,6 +13,13 @@ export default function ($stateProvider, $urlRouterProvider) {
       url: '/users',
       component: 'users'
     })
+    .state('playlists', {
+      url: '/playlists',
+      component: 'playlists',
+      resolve: {
+        playlists: function () {}
+      }
+    })
     .state('login', {
       url: '',
       abstract: true,
@@ -41,14 +48,14 @@ export default function ($stateProvider, $urlRouterProvider) {
 
         if ($stateParams.token) {
           AuthService.setToken($stateParams.token).then(() => {
-            $state.go('home');
-          })
-          .catch((err) => {
-            let message = err.data ? err.data.message || err.data : err;
-            let toastContent = `Error: ${message} !`;
-            $mdToast.showSimple(toastContent);
-            $state.go('home');
-          });
+              $state.go('home');
+            })
+            .catch((err) => {
+              let message = err.data ? err.data.message || err.data : err;
+              let toastContent = `Error: ${message} !`;
+              $mdToast.showSimple(toastContent);
+              $state.go('home');
+            });
         } else {
           $state.go('home');
         }
