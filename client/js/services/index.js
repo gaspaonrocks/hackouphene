@@ -15,7 +15,7 @@ let services = angular.module('appServices', [
 
 services
   .factory('UsersService', usersService)
-  .factory('YoutubeService', youtubeService)
+  .service('YoutubeService', youtubeService)
   .service('AuthService', authService);
 
 export default services.name;

@@ -1,3 +1,9 @@
 <div>
-  Home page
+  <md-input-container class="md-block">
+    <label>Search YouTube</label>
+    <input required type="text" name="search" ng-model="query">
+    <md-button class="md-raised" ng-click="$ctrl.searchYoutube(query)">Search</md-button>
+    <button ng-click="$ctrl.searchYoutube(query)">test</button>
+
+  </md-input-container>
 </div>
