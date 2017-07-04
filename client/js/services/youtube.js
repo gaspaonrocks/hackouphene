@@ -8,9 +8,8 @@ export default function ($resource, CONSTANTS, $q, $http) {
   // });
 
   this.searchVideos = (param) => {
-    console.log('service', param)
     return $q((resolve, reject) => {
-      $http.post(CONSTANTS.youtubeUrl, param.field).then((response) => {
+      $http.post(CONSTANTS.youtubeUrl, param).then((response) => {
           resolve(response.data);
         })
         .catch((err) => {

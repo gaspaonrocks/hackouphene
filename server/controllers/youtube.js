@@ -9,7 +9,7 @@ youtube.setKey('AIzaSyCZRnJtykOp7rTuV3W0cm3d8J-JgGYu6lU');
 class YoutubeController {
 
   query(req, res, next) {
-    youtube.search(req.body, 20, (error, result) => {
+    youtube.search(req.body.field, 20, (error, result) => {
       if (error) {
         next(error);
       } else {

@@ -1,0 +1,33 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{::$ctrl.song.snippet.title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+          <md-icon aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2>{{::$ctrl.song.snippet.title}}</h2>
+        <p> {{::$ctrl.song.snippet.description}} </p>
+        <img style="margin: auto; max-width: 100%;" alt="{{::$ctrl.song.snippet.title}}" ng-src="{{::$ctrl.song.snippet.thumbnails.high.url}}">
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="$ctrl.playSong($ctrl.song)">
+        Play Song
+      </md-button>
+      <md-button ng-click="$ctrl.addSong($ctrl.song)">
+        Add Song
+      </md-button>
+      <md-button ng-click="$ctrl.cancel()">
+        Cancel
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

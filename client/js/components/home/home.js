@@ -1,12 +1,13 @@
 'use strict';
 
 import template from './home.html';
+import dialog from './dialogCtrl';
 
 export default {
 
   template: template,
 
-  controller: function (YoutubeService, $log, $scope, $rootScope) {
+  controller: function (YoutubeService, $log, $scope, $rootScope, $mdDialog, $rootElement) {
     'ngInject';
 
     this.$onInit = () => {
@@ -15,28 +16,45 @@ export default {
 
     this.addSong = (obj) => {
       obj.url = obj.id.videoId;
-      $rootScope.$emit('addSong', obj);
+      $roothis.$emit('addSong', obj);
     }
 
     this.playSong = (obj) => {
       obj.url = obj.id.videoId;
-      $rootScope.$emit('playSong', obj);
+      $roothis.$emit('playSong', obj);
     }
 
     this.searchYoutube = (param) => {
+      // why can't i just get the param straight from the ng-model ???
       let query = {
         field: param
       };
       this.results = [];
-      console.log(JSON.stringify(query));
+      // why do I have to JSON.stringify it ???
       YoutubeService.searchVideos(JSON.stringify(query)).then((data) => {
-        this.results = data.data.items;
+        this.results = data.items;
+        console.log(this.results);
       })
+    }
+
+    this.clearSearch = () => {
+      this.results = [];
     }
 
     this.keepSong = (obj) => {
       this.song = obj;
       console.log(this.song);
     }
+
+    this.showAdvanced = (ev, obj) => {
+      $mdDialog.show(dialog({
+          song: obj
+        }))
+        .then((answer) => {
+          this.status = 'You said the information was "' + answer + '".';
+        }, () => {
+          this.status = 'You cancelled the dialog.';
+        });
+    };
   }
 }
