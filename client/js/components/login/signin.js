@@ -12,7 +12,7 @@ export default {
     this.signin = () => {
       // Local authentication mode
       AuthService.login(this.user).then(() => {
-        $state.go('users');
+        $state.go('home');
       }).catch((err) => {
         $mdToast.showSimple(`Error : ${err} !`);
       });

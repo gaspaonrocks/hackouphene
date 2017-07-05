@@ -6,7 +6,6 @@ export default function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      publicRoute: true,
       component: 'home'
     })
     .state('users', {

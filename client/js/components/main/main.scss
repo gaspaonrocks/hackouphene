@@ -11,3 +11,11 @@
   position: fixed;
   bottom: 0;
 }
+
+#bottomToolbar md-icon {
+  cursor: pointer;
+}
+
+#playerToggle {
+  background-color: rgba(0, 0, 0, 0) !important;
+}

@@ -17,7 +17,7 @@ export default {
       this.user.$save((res) => {
         return AuthService.setToken(res.token);
       }).then(() => {
-        $state.go('users');
+        $state.go('home');
       }).catch((err) => {
         let message = err.data ? err.data.message || err.data : err;
         let toastContent = `Error: ${message} !`;

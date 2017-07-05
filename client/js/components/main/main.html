@@ -1,6 +1,6 @@
 <md-toolbar id="mainToolbar">
   <div class="md-toolbar-tools">
-    <img src="../../../images/angularjs.png" />
+    <img src="../../../images/YouTube.png" />
     <h3>HackOuphène</h3>
     <span flex></span>
     <a ui-sref="login.signin" ng-if="!$ctrl.user">Sign in</a>
@@ -10,7 +10,7 @@
 
 <md-content class="md-padding">
   <md-nav-bar md-selected-nav-item="$ctrl.selectedTab" aria-label="menu">
-    <md-nav-item md-nav-sref="home" sref-opts="{reload:true, notify:true}" name="home">Home</md-nav-item>
+    <md-nav-item md-nav-sref="home" sref-opts="{reload:true, notify:true}" name="home" ng-if="$ctrl.user">Home</md-nav-item>
     <md-nav-item md-nav-sref="users" sref-opts="{reload:true, notify:true}" name="users" ng-if="$ctrl.user">Users</md-nav-item>
     <md-nav-item md-nav-sref="playlists" sref-opts="{reload:true, notify:true}" name="playlists" ng-if="$ctrl.user">Playlists</md-nav-item>
   </md-nav-bar>
@@ -21,6 +21,23 @@
   </md-content>
 </md-content>
 
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">Your playlist</h1>
+  </md-toolbar>
+  <md-content layout-padding>
+    <div>
+      <youtube-video video-id="$ctrl.songUrl"></youtube-video>
+    </div>
+    <md-list ng-cloak>
+      <md-list-item ng-repeat="song in $ctrl.songsList track by $index" ng-click="$ctrl.playNow(song)">{{song.snippet.title}}</md-list-item>
+    </md-list>
+    <md-button ng-click="$ctrl.close()" class="md-primary">
+      Close Sidenav Right
+    </md-button>
+  </md-content>
+</md-sidenav>
+
 <md-toolbar class="md-toolbar-tools" layout-align="center-center" ng-if="$ctrl.user" id="bottomToolbar">
   <div layout="row">
     <md-content id="playerCtrl">
@@ -28,7 +45,7 @@
       <md-icon><i class="fa fa-play" aria-hidden="true"></i></md-icon>
       <md-icon><i class="fa fa-pause" aria-hidden="true"></i></md-icon>
       <md-icon><i class="fa fa-step-forward" aria-hidden="true"></i></md-icon>
-      <md-icon><i class="fa fa-youtube-play" aria-hidden="true"></i></md-icon>
+      <md-icon ng-click="$ctrl.toggleRight()" ng-hide="$ctrl.isOpenRight()"><i class="fa fa-youtube-play" aria-hidden="true"></i></md-icon>
     </md-content>
   </div>
 </md-toolbar>

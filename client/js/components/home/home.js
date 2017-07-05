@@ -7,22 +7,22 @@ export default {
 
   template: template,
 
-  controller: function (YoutubeService, $log, $scope, $rootScope, $mdDialog, $rootElement) {
+  controller: function (YoutubeService, $log, $scope, $rootScope, $mdDialog) {
     'ngInject';
 
     this.$onInit = () => {
       $log.log('ready to fire !');
     };
 
-    this.addSong = (obj) => {
-      obj.url = obj.id.videoId;
-      $roothis.$emit('addSong', obj);
-    }
+    // this.addSong = (obj) => {
+    //   obj.url = obj.id.videoId;
+    //   $rootScope.$emit('addSong', obj);
+    // }
 
-    this.playSong = (obj) => {
-      obj.url = obj.id.videoId;
-      $roothis.$emit('playSong', obj);
-    }
+    // this.playSong = (obj) => {
+    //   obj.url = obj.id.videoId;
+    //   $rootScope.$emit('playSong', obj);
+    // }
 
     this.searchYoutube = (param) => {
       // why can't i just get the param straight from the ng-model ???

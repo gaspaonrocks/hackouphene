@@ -13,16 +13,16 @@ export default locals => ({
     this.addSong = (obj) => {
       obj.url = obj.id.videoId;
       $rootScope.$emit('addSong', obj);
-      console.log('song added', obj);
-    }
+      // console.log('song added', obj);
+    };
     this.playSong = (obj) => {
       obj.url = obj.id.videoId;
       $rootScope.$emit('playSong', obj);
-      console.log('song played', obj);
-    }
+      // console.log('song played', obj);
+    };
     this.cancel = () => {
       $mdDialog.cancel()
-    }
+    };
   },
   clickOutsideToClose: true
 
