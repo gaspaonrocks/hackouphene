@@ -18,3 +18,4 @@ Can be deployed on Heroku. Add a .env file on the project root directory with:
     FACEBOOK_ClientId=<your FB app clientId>
     FACEBOOK_ClientSecret=<your FB app clientSecret>
   ```
+# A full JS youtube player and playlists manager
