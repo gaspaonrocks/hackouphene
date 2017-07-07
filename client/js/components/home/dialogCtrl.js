@@ -1,8 +1,9 @@
 'use strict';
 
 import template from './dialog.tmpl.html';
+import confirm from './confirmCtrl.js';
 
-export default locals => ({
+export default (locals) => ({
 
   template: template,
   locals,
@@ -10,11 +11,15 @@ export default locals => ({
   controllerAs: '$ctrl',
   controller: function ($mdDialog, $rootScope) {
     console.log(this.song);
+
     this.addSong = (obj) => {
       obj.url = obj.id.videoId;
-      $rootScope.$emit('addSong', obj);
-      // console.log('song added', obj);
+
+      $mdDialog.show(confirm({
+        song: obj
+      }));
     };
+
     this.playSong = (obj) => {
       obj.url = obj.id.videoId;
       $rootScope.$emit('playSong', obj);
@@ -25,5 +30,4 @@ export default locals => ({
     };
   },
   clickOutsideToClose: true
-
 })

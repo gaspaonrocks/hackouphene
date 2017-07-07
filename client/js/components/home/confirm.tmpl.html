@@ -1,0 +1,46 @@
+<!--<md-dialog-content layout-gt-sm="row" layout-padding flex>
+  <div>
+    <div class="md-toolbar-tools">
+      <h2>Name Your Damn Song !</h2>
+    </div>
+
+  </div>
+  <md-button md-no-ink class="md-primary" ng-click="$ctrl.addSong($ctrl.song)">ADD IT !</md-button>
+</md-dialog-content>-->
+
+<md-dialog>
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>NameYourDamnSong !</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+          <i class="fa fa-times" aria-hidden="true" aria-label="close"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container flex="50">
+          <label>Title</label>
+          <input ng-model="$ctrl.song.title">
+        </md-input-container>
+
+        <md-input-container flex="50">
+          <label>Artist</label>
+          <input ng-model="$ctrl.song.artist">
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="$ctrl.addSong($ctrl.song)" class="md-primary md-raised">
+        ADD IT !
+      </md-button>
+      <md-button ng-click="$ctrl.addSong($ctrl.song)" class="md-primary md-raised">
+        ADD IT !
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

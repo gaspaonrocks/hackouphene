@@ -30,10 +30,15 @@
       <youtube-video video-id="$ctrl.songUrl"></youtube-video>
     </div>
     <md-list ng-cloak>
-      <md-list-item ng-repeat="song in $ctrl.songsList track by $index" ng-click="$ctrl.playNow(song)">{{song.snippet.title}}</md-list-item>
+      <md-list-item ng-repeat="song in $ctrl.songsList track by $index" ng-click="$ctrl.playNow(song)">
+        {{::song.title}} - {{::song.artist}}
+      </md-list-item>
     </md-list>
-    <md-button ng-click="$ctrl.close()" class="md-primary">
-      Close Sidenav Right
+    <md-button ng-click="$ctrl.close()" class="md-primary md-raised">
+      Close It
+    </md-button>
+    <md-button ng-click="$ctrl.SavePlaylist()" class="md-primary md-raised">
+      Save It !
     </md-button>
   </md-content>
 </md-sidenav>

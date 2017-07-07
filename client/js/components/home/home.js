@@ -48,13 +48,8 @@ export default {
 
     this.showAdvanced = (ev, obj) => {
       $mdDialog.show(dialog({
-          song: obj
-        }))
-        .then((answer) => {
-          this.status = 'You said the information was "' + answer + '".';
-        }, () => {
-          this.status = 'You cancelled the dialog.';
-        });
+        song: obj
+      }));
     };
   }
 }
