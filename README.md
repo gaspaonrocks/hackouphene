@@ -22,6 +22,7 @@ Can be deployed on Heroku. Add a .env file on the project root directory with:
 
 What is to come : 
   - Saving playlists
+  - Add more controls to video player
   - fix video in player
   - fix minor bug in list play order
   - fix visual on bottom page
