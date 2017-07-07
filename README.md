@@ -19,3 +19,10 @@ Can be deployed on Heroku. Add a .env file on the project root directory with:
     FACEBOOK_ClientSecret=<your FB app clientSecret>
   ```
 # A full JS youtube player and playlists manager
+
+What is to come : 
+  - Saving playlists
+  - fix video in player
+  - fix minor bug in list play order
+  - fix visual on bottom page
+  - add other player (spotify, deezer, soundcloud, etc...)
