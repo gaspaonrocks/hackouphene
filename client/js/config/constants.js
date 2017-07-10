@@ -6,6 +6,7 @@ export default {
   usersUrl: '/api/users',
   youtubeUrl: '/api/youtube',
   playlistsUrl: '/api/playlists',
+  songsUrl: '/api/songs',
   authToken: 'mean-token',
   serverFacebookUrl: '/api/auth/facebook'
 };

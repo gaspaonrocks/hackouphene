@@ -6,7 +6,7 @@ class PlaylistsController {
 
   find(req, res, next) {
     if (currentUser) {
-      User.find(req.query, (err, playlists) => {
+      Playlists.find(req.query, (err, playlists) => {
         if (err) {
           next(err);
         } else {
@@ -28,15 +28,15 @@ class PlaylistsController {
 
   update(req, res, next, currentPlaylist) {
     // TODO : rewrite update function
-    if (currentUser && (req.params.id == currentUser._id || currentUser.isAdmin)) {
+    if (req.params.id == currentPlaylist._id) {
       User.findOneAndUpdate(req.params.id, req.body, {
           new: true,
         },
-        (err, user) => {
+        (err, playlist) => {
           if (err) {
             next(err);
           } else {
-            res.json(user);
+            res.json(playlist);
           }
         });
     } else {

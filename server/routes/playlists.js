@@ -1,10 +1,10 @@
 'use strict';
 
-import PlaylistController from '../controllers/playlists.js';
+import PlaylistsController from '../controllers/playlists.js';
 
 export default function (router) {
 
-  let ctrl = new PlaylistController();
+  let ctrl = new PlaylistsController();
 
   // Saving the playlist
   router.post('/playlists', (req, res, next) => {

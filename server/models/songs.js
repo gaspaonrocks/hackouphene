@@ -17,7 +17,15 @@ let SongSchema = new mongoose.Schema({
   tags: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Tags'
-  }]
+  }],
+  url: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  thumbnail: {
+    type: String
+  }
 });
 
 export default mongoose.model('Song', SongSchema);

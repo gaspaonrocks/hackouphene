@@ -8,7 +8,7 @@ export default {
   template: template,
   css: styles,
 
-  controller: function (AuthService, $state, $transitions, $log, $mdToast, $scope, $rootScope, CONSTANTS, $mdSidenav) {
+  controller: function (AuthService, SongsService, PlaylistsService, $state, $transitions, $log, $mdToast, $scope, $rootScope, CONSTANTS, $mdSidenav) {
     'ngInject';
 
     $transitions.onSuccess({}, (transition) => {
@@ -127,5 +127,22 @@ export default {
           $log.debug("Playlist closed !");
         });
     };
+
+    this.savePlaylist = (songslist) => {
+      let playlist = [];
+      for (let song of songslist) {
+        let newSong = {
+          title: song.title,
+          artist: song.artist,
+          url: song.url,
+          thumbnail: song.snippet.thumbnails.high.url
+        };
+        console.log('new song', newSong);
+        SongsService.save(newSong, (savedSong) => {
+          playlist.push(savedSong);
+        })
+      }
+      console.log('playlist', playlist);
+    }
   }
 }

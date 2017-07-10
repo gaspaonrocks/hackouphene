@@ -8,6 +8,7 @@ import setUsersRoutes from './users';
 import setAuthRoutes from './auth';
 import setYTRoutes from './youtube';
 import setPlaylistsRoutes from './playlists';
+import setSongsRoutes from './songs';
 
 /**
  * Configure server API routes.
@@ -30,6 +31,7 @@ export default function (passport) {
   setAuthRoutes(router, passport);
   setYTRoutes(router, passport);
   setPlaylistsRoutes(router, passport);
+  setSongsRoutes(router, passport);
 
   return router;
 }

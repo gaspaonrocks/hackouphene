@@ -8,6 +8,7 @@ import usersService from './users';
 import authService from './auth';
 import youtubeService from './youtube';
 import playlistsService from './playlists';
+import songsService from './songs';
 
 let services = angular.module('appServices', [
   localStorage,
@@ -18,6 +19,7 @@ services
   .factory('UsersService', usersService)
   .service('YoutubeService', youtubeService)
   .factory('PlaylistsService', playlistsService)
+  .factory('SongsService', songsService)
   .service('AuthService', authService);
 
 export default services.name;
