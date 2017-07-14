@@ -31,10 +31,10 @@ export default {
       this.results = [];
     }
 
-    this.keepSong = (obj) => {
-      this.song = obj;
-      console.log(this.song);
-    }
+    // this.keepSong = (obj) => {
+    //   this.song = obj;
+    //   console.log(this.song);
+    // }
 
     this.showAdvanced = (ev, obj) => {
       $mdDialog.show(dialog({

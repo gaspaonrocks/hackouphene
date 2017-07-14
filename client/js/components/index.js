@@ -3,6 +3,7 @@
 import angular from 'angular';
 
 import mainComponent from './main/main';
+import sidenavComponent from './main/sidenav';
 import homeComponent from './home/home';
 import usersComponent from './users/users';
 import playlistsComponent from './playlists/playlists';
@@ -14,6 +15,7 @@ let components = angular.module('appComponents', []);
 
 components
   .component('main', mainComponent)
+  .component('sidenav', sidenavComponent)
   .component('home', homeComponent)
   .component('users', usersComponent)
   .component('login', loginComponent)

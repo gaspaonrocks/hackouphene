@@ -21,27 +21,7 @@
   </md-content>
 </md-content>
 
-<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-  <md-toolbar class="md-theme-light">
-    <h1 class="md-toolbar-tools">Your playlist</h1>
-  </md-toolbar>
-  <md-content layout-padding>
-    <div>
-      <youtube-video video-id="$ctrl.songUrl"></youtube-video>
-    </div>
-    <md-list ng-cloak>
-      <md-list-item ng-repeat="song in $ctrl.songsList track by $index" ng-click="$ctrl.playNow(song)">
-        {{::song.title}} - {{::song.artist}}
-      </md-list-item>
-    </md-list>
-    <md-button ng-click="$ctrl.close()" class="md-primary md-raised">
-      Close It
-    </md-button>
-    <md-button ng-click="$ctrl.savePlaylist($ctrl.songsList)" class="md-primary md-raised">
-      Save It !
-    </md-button>
-  </md-content>
-</md-sidenav>
+<sidenav></sidenav>
 
 <md-toolbar class="md-toolbar-tools" layout-align="center-center" ng-if="$ctrl.user" id="bottomToolbar">
   <div layout="row">
