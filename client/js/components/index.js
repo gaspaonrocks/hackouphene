@@ -3,6 +3,7 @@
 import angular from 'angular';
 
 import mainComponent from './main/main';
+import playerctrlComponent from './main/playerctrl';
 import sidenavComponent from './main/sidenav';
 import homeComponent from './home/home';
 import usersComponent from './users/users';
@@ -15,6 +16,7 @@ let components = angular.module('appComponents', []);
 
 components
   .component('main', mainComponent)
+  .component('playerctrl', playerctrlComponent)
   .component('sidenav', sidenavComponent)
   .component('home', homeComponent)
   .component('users', usersComponent)

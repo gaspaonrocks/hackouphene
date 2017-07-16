@@ -17,29 +17,40 @@ export default {
 
     this.$onChanges = () => {
       $scope.$on('youtube.player.ready', ($event, player) => {
-        console.log('im ready!');
-        // play it again
+        // console.log('im ready!');
         player.playVideo();
       });
 
-      $scope.$on('youtube.player.ended', ($event, player) => {
+      $scope.$on('youtube.player.ended', ($event) => {
         if (this.songsList.length > 0) {
           this.songUrl = this.songsList[this.index].url;
           this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
-          player.playVideo();
         }
       });
 
       $rootScope.$on('addSong', (evt, obj) => {
         this.songsList.push(obj);
-        // console.log('song added', obj)
       });
 
       $rootScope.$on('playSong', (evt, obj) => {
         this.songUrl = obj.id.videoId;
-        // console.log(this.songUrl);
         if (this.songsList.indexOf(obj) >= 0) {
           this.index = this.songsList.indexOf(obj) + 1;
+        }
+      });
+
+      $rootScope.$on('prevSong', (evt) => {
+        // TODO : check index and songlist to play previous song.
+        // if (this.songsList.length > 0) {
+        //   this.songUrl = this.songsList[this.index-2].url;
+        //   this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
+        // }
+      });
+
+      $rootScope.$on('nextSong', (evt) => {
+        if (this.songsList.length > 0) {
+          this.songUrl = this.songsList[this.index].url;
+          this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
         }
       });
 
@@ -62,7 +73,6 @@ export default {
     };
 
     this.playNow = (obj) => {
-      $log.log('play it', obj.snippet.thumbnails.high.url);
       $rootScope.$emit('playSong', obj);
     };
 

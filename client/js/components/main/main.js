@@ -45,21 +45,5 @@ export default {
         $mdToast.showSimple('Disconnected');
       }
     });
-
-    this.toggleRight = buildToggler('right');
-    this.isOpenRight = () => {
-      return $mdSidenav('right').isOpen();
-    };
-
-    function buildToggler(navID) {
-      return () => {
-        // Component lookup should always be available since we are not using `ng-if`
-        $mdSidenav(navID)
-          .toggle()
-          .then(() => {
-            $log.debug('toggle ' + navID + ' is done');
-          });
-      };
-    }
   }
 }
