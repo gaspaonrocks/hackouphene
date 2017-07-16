@@ -23,6 +23,7 @@ export default {
 
       $scope.$on('youtube.player.ended', ($event) => {
         if (this.songsList.length > 0) {
+          $rootScope.$emit('currentSong', (this.songsList[this.index]));
           this.songUrl = this.songsList[this.index].url;
           this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
         }
@@ -34,21 +35,24 @@ export default {
 
       $rootScope.$on('playSong', (evt, obj) => {
         this.songUrl = obj.id.videoId;
+        $rootScope.$emit('currentSong', obj);
         if (this.songsList.indexOf(obj) >= 0) {
           this.index = this.songsList.indexOf(obj) + 1;
         }
       });
 
       $rootScope.$on('prevSong', (evt) => {
-        // TODO : check index and songlist to play previous song.
-        // if (this.songsList.length > 0) {
-        //   this.songUrl = this.songsList[this.index-2].url;
-        //   this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
-        // }
+        if (this.songsList.length > 0) {
+          this.index - 2 < 0 ? this.index = this.songsList.length + this.index - 2 : this.index -= 2;
+          $rootScope.$emit('currentSong', (this.songsList[this.index]));
+          this.songUrl = this.songsList[this.index].url;
+          this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
+        }
       });
 
       $rootScope.$on('nextSong', (evt) => {
         if (this.songsList.length > 0) {
+          $rootScope.$emit('currentSong', (this.songsList[this.index]));
           this.songUrl = this.songsList[this.index].url;
           this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
         }
@@ -65,6 +69,7 @@ export default {
         // console.log(list);
         this.clearList();
         this.index = 1;
+        $rootScope.$emit('currentSong', (this.songsList[this.index]));
         this.songUrl = list[0].url;
         for (let i = 0, len = list.length; i < len; i++) {
           this.songsList.push(list[i])

@@ -1,7 +1,12 @@
-<md-toolbar class="md-toolbar-tools" layout-align="center-center" id="bottomToolbar">
+<md-toolbar class="md-toolbar-tools" layout-align="center-center" id="bottomToolbar" layout="column">
+  <div ng-if="$ctrl.currentSong.id">
+    <span>Currently Playing : {{$ctrl.currentSong.artist}} - {{$ctrl.currentSong.title}}</span>
+    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+  </div>
+
   <div layout="row">
     <md-content id="playerCtrl">
-      <md-icon><i class="fa fa-step-backward" aria-hidden="true"></i></md-icon>
+      <md-icon ng-click="$ctrl.prevSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></md-icon>
       <md-icon><i class="fa fa-play" aria-hidden="true"></i></md-icon>
       <md-icon><i class="fa fa-pause" aria-hidden="true"></i></md-icon>
       <md-icon ng-click="$ctrl.nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></md-icon>

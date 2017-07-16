@@ -9,7 +9,20 @@ export default {
   controller: function ($scope, $rootScope, $log, SongsService, $mdSidenav) {
     'ngInject';
 
-    this.$onInit = () => {};
+    this.$onInit = () => {
+      this.currentSong = {};
+    };
+
+    this.$onChanges = function (changes) {
+      // finalement pas sûr que $onchanges soit vraiment utile...
+      // le passage d'une donnée d'un parent à l'enfant 
+      // se fait par les écoutes...
+      // this.currentSong = changes;
+    };
+
+    $rootScope.$on('currentSong', (evt, obj) => {
+      this.currentSong = obj;
+    });
 
     this.toggleRight = buildToggler('right');
     this.isOpenRight = () => {
