@@ -11,16 +11,18 @@ let PlaylistSchema = new mongoose.Schema({
     unique: true
   },
   username: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true
   },
-  tags: {
-    type: Array,
-    required: true
-  },
-  songs: {
-    type: Array
-  },
+  tags: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Tags'
+  }],
+  songs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Song'
+  }],
   private: {
     type: Boolean,
     required: true

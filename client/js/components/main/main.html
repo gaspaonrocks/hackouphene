@@ -21,36 +21,6 @@
   </md-content>
 </md-content>
 
-<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-  <md-toolbar class="md-theme-light">
-    <h1 class="md-toolbar-tools">Your playlist</h1>
-  </md-toolbar>
-  <md-content layout-padding>
-    <div>
-      <youtube-video video-id="$ctrl.songUrl"></youtube-video>
-    </div>
-    <md-list ng-cloak>
-      <md-list-item ng-repeat="song in $ctrl.songsList track by $index" ng-click="$ctrl.playNow(song)">
-        {{::song.title}} - {{::song.artist}}
-      </md-list-item>
-    </md-list>
-    <md-button ng-click="$ctrl.close()" class="md-primary md-raised">
-      Close It
-    </md-button>
-    <md-button ng-click="$ctrl.SavePlaylist()" class="md-primary md-raised">
-      Save It !
-    </md-button>
-  </md-content>
-</md-sidenav>
+<sidenav></sidenav>
 
-<md-toolbar class="md-toolbar-tools" layout-align="center-center" ng-if="$ctrl.user" id="bottomToolbar">
-  <div layout="row">
-    <md-content id="playerCtrl">
-      <md-icon><i class="fa fa-step-backward" aria-hidden="true"></i></md-icon>
-      <md-icon><i class="fa fa-play" aria-hidden="true"></i></md-icon>
-      <md-icon><i class="fa fa-pause" aria-hidden="true"></i></md-icon>
-      <md-icon><i class="fa fa-step-forward" aria-hidden="true"></i></md-icon>
-      <md-icon ng-click="$ctrl.toggleRight()" ng-hide="$ctrl.isOpenRight()"><i class="fa fa-youtube-play" aria-hidden="true"></i></md-icon>
-    </md-content>
-  </div>
-</md-toolbar>
+<playerctrl ng-if="$ctrl.user"></playerctrl>

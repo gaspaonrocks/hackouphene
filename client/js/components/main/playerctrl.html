@@ -1,0 +1,11 @@
+<md-toolbar class="md-toolbar-tools" layout-align="center-center" id="bottomToolbar">
+  <div layout="row">
+    <md-content id="playerCtrl">
+      <md-icon><i class="fa fa-step-backward" aria-hidden="true"></i></md-icon>
+      <md-icon><i class="fa fa-play" aria-hidden="true"></i></md-icon>
+      <md-icon><i class="fa fa-pause" aria-hidden="true"></i></md-icon>
+      <md-icon ng-click="$ctrl.nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></md-icon>
+      <md-icon ng-click="$ctrl.toggleRight()" ng-hide="$ctrl.isOpenRight()"><i class="fa fa-youtube-play" aria-hidden="true"></i></md-icon>
+    </md-content>
+  </div>
+</md-toolbar>

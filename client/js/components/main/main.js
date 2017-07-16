@@ -8,7 +8,7 @@ export default {
   template: template,
   css: styles,
 
-  controller: function (AuthService, $state, $transitions, $log, $mdToast, $scope, $rootScope, CONSTANTS, $mdSidenav) {
+  controller: function (AuthService, SongsService, PlaylistsService, $state, $transitions, $log, $mdToast, $scope, $rootScope, CONSTANTS, $mdSidenav) {
     'ngInject';
 
     $transitions.onSuccess({}, (transition) => {
@@ -26,10 +26,6 @@ export default {
           $log.info(err);
           this.user = null;
         });
-
-      this.urlList = [];
-      this.songsList = [];
-      this.index = 1;
     };
 
     this.logout = () => {
@@ -49,83 +45,5 @@ export default {
         $mdToast.showSimple('Disconnected');
       }
     });
-
-    this.$onChanges = () => {
-      $scope.$on('youtube.player.ready', ($event, player) => {
-        console.log('im ready!');
-        // play it again
-        player.playVideo();
-      });
-
-      $scope.$on('youtube.player.ended', ($event, player) => {
-        if (this.songsList.length > 0) {
-          this.songUrl = this.songsList[this.index].url;
-          this.index == this.songsList.length - 1 ? this.index = 0 : this.index++;
-          player.playVideo();
-        }
-      });
-
-      $rootScope.$on('addSong', (evt, obj) => {
-        this.songsList.push(obj);
-        console.log('song added', obj)
-      });
-
-      $rootScope.$on('playSong', (evt, obj) => {
-        this.songUrl = obj.id.videoId;
-        console.log(this.songUrl);
-        if (this.songsList.indexOf(obj) >= 0) {
-          this.index = this.songsList.indexOf(obj) + 1;
-        }
-      }); // $rootScope.$on('playSong'
-
-      $rootScope.$on('addPlaylist', (evt, list) => {
-        console.log(list);
-        for (let i = 0, len = list.length; i < len; i++) {
-          this.songsList.push(list[i]);
-        }
-      })
-
-      $rootScope.$on('playPlaylist', (evt, list) => {
-        console.log(list);
-        this.clearList();
-        this.index = 1;
-        this.songUrl = list[0].url;
-        for (let i = 0, len = list.length; i < len; i++) {
-          this.songsList.push(list[i])
-        }
-      }); // $rootScope.$on('playPlayList'
-    }; //this.$onChanges
-
-    this.playNow = (obj) => {
-      $rootScope.$emit('playSong', obj);
-    };
-
-    this.clearList = () => {
-      this.songsList = [];
-    };
-
-    this.toggleRight = buildToggler('right');
-    this.isOpenRight = () => {
-      return $mdSidenav('right').isOpen();
-    };
-
-    function buildToggler(navID) {
-      return () => {
-        // Component lookup should always be available since we are not using `ng-if`
-        $mdSidenav(navID)
-          .toggle()
-          .then(() => {
-            $log.debug("toggle " + navID + " is done");
-          });
-      };
-    }
-
-    this.close = () => {
-      // Component lookup should always be available since we are not using `ng-if`
-      $mdSidenav('right').close()
-        .then(() => {
-          $log.debug("Playlist closed !");
-        });
-    };
   }
 }
