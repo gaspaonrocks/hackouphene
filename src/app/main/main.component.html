@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+    Here will go the player and the playlist
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <h1>Here will go the listing, the results of search, the search bar, etc... in view rendered by the router</h1>
+    <p>
+      <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+    </p>
+    <p>
+      <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+    </p>
+    <p>Events:</p>
+    <div class="example-events">
+      <div *ngFor="let e of events">{{e}}</div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
