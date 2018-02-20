@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  categories = [
+    'artist',
+    'song',
+    'album',
+    'genre'
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  searchResults(data) {
+    console.log(data, 'it works');
   }
-
 }

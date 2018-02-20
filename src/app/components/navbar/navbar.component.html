@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item routerLink="/home" routerLinkActive="active">Home</button>
+    <button mat-menu-item routerLink="/search" routerLinkActive="active">Search a track</button>
+    <button mat-menu-item routerLink="/list" routerLinkActive="active">List all songs</button>
+    <button mat-menu-item routerLink="/test" routerLinkActive="active">List all playlists</button>
+    <button mat-menu-item>Other</button>
+  </mat-menu>
+
+  <span>HACKOUPHENE</span>
+</mat-toolbar>
