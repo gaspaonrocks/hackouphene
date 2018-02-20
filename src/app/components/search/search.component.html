@@ -2,7 +2,7 @@
   <mat-card>
     <h1>This is search !</h1>
 
-    <form class="example-form" (ngSubmit)="onSubmit()">
+    <form *ngIf="this.authenticated" class="example-form" (ngSubmit)="onSubmit()">
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Favorite food" #food>
       </mat-form-field>
@@ -20,6 +20,8 @@
       </mat-form-field>
 
     </form>
-    <button type="submit" mat-raised-button color="primary" (click)="searchResults({'e': $event, 'food': food.value, 'comment': comment.value, 'category': select.value })">Look for results !</button>
+    <button type="submit" mat-raised-button color="primary" (click)="nothingForNow()">Authorization Code Flow Authentication</button>
+    <button type="submit" mat-raised-button color="primary" (click)="nothingForNow()">Client Credentials Flow Authentication</button>
+    <button type="submit" mat-raised-button color="primary" (click)="implicitGrantFlow($event)">Implicit Grant Flow Authentication</button>
   </mat-card>
 </p>
