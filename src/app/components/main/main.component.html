@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container" *ngIf="shouldRun">
 
-  <mat-sidenav class="example-sidenav" #sidenav mode="over" [(opened)]="opened" (opened)="dealingWithEvents('open!')" (closed)="dealingWithEvents('close!')">
+  <mat-sidenav [fixedInViewport]="true" class="example-sidenav" #sidenav mode="over" [(opened)]="opened" (opened)="dealingWithEvents('open!')" (closed)="dealingWithEvents('close!')">
     Here will go the player and the playlist
   </mat-sidenav>
 

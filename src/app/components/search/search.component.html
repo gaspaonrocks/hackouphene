@@ -2,9 +2,9 @@
   <mat-card>
     <h1>This is search !</h1>
 
-    <form *ngIf="this.authenticated" class="example-form" (ngSubmit)="onSubmit()">
+    <form *ngIf="this.authenticated === true" class="example-form" (ngSubmit)="onSubmit({query:query.value, comment:comment.value, select:select.value})">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Favorite food" #food>
+        <input matInput placeholder="search" #query>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
