@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container" *ngIf="shouldRun">
 
-  <mat-sidenav [fixedInViewport]="true" class="example-sidenav" #sidenav mode="over" [(opened)]="opened" (opened)="dealingWithEvents('open!')" (closed)="dealingWithEvents('close!')">
+  <mat-sidenav [fixedInViewport]="true" class="example-sidenav" #sidenav mode="over" [(opened)]="opened">
     Here will go the player and the playlist
   </mat-sidenav>
 
@@ -12,10 +12,6 @@
     <p>
       <button mat-raised-button color="primary" (click)="sidenav.toggle()">Toggle the sidenav !</button>
     </p>
-    <p>Events:</p>
-    <div class="example-events">
-      <div *ngFor="let e of events">{{e}}</div>
-    </div>
 
     <router-outlet></router-outlet>
 

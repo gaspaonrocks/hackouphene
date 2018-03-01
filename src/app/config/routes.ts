@@ -5,7 +5,7 @@ import { SearchComponent } from '../components/search/search.component';
 import { ListComponent } from '../components/list/list.component';
 import { NotFoundComponent } from '../components/notfound/notfound.component';
 
-const appRoutes: Routes = [
+let appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'list', component: ListComponent },
