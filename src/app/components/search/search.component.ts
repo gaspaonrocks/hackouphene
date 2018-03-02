@@ -93,4 +93,10 @@ export class SearchComponent implements OnInit {
         console.log(data.artists.items);
       });
   }
+
+  getImgUrl(artist) {
+    return artist.images.length >= 1
+      ? artist.images[0].url
+      : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
+  }
 }
