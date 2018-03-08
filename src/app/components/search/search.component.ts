@@ -56,14 +56,11 @@ export class SearchComponent implements OnInit {
   }
 
   implicitGrantFlow(data) {
-    console.log(data, "it works");
     this.implicitService.getCredentialsToken();
   }
 
   nothingForNow() {
     this.hashParams = this.getHashParams();
-    /* console.log(this.hashParams);
-    console.log("to be implemented..."); */
     if (this.hashParams !== {}) {
       this.authenticated = true;
     }
@@ -81,16 +78,16 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(data) {
-    let submitCategory = encodeURIComponent(data.select);
-    let submitQuery = encodeURIComponent(data.query);
+    const submitCategory = encodeURIComponent(data.select);
+    const submitQuery = encodeURIComponent(data.query);
     return this.implicitService
       .querySpotifyApi(
         { submitCategory, submitQuery },
         this.hashParams.access_token
       )
-      .subscribe(data => {
-        this.artists = data.artists.items;
-        console.log(data.artists.items);
+      .subscribe(dataFromSpotify => {
+        this.artists = dataFromSpotify.artists.items;
+        console.log(dataFromSpotify.artists.items);
       });
   }
 
