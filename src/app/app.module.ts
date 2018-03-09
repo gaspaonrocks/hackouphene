@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 
 /*** IMPORT THE CONFIG FILES ***/
-import appRoutes from "./config/routes";
+import { AppRoutingModule } from "./config/routes";
 
 /** IMPORT THE COMPONENTS ***/
 import { AppComponent } from "./app.component";
@@ -48,7 +48,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     NotFoundComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    AppRoutingModule,
     HttpClientModule,
     BrowserModule,
     FormsModule,

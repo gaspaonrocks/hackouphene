@@ -14,9 +14,9 @@ import "rxjs/add/operator/startWith";
 })
 export class SearchComponent implements OnInit {
   private authenticated: boolean;
-  public hashParams: object;
+  public hashParams: any;
   public receivedData: object;
-  public artists: Array<object>;
+  public artists: any;
   private categories: Array<string> = ["artist", "song", "album", "genre"];
   public cols: Observable<number>;
 
@@ -86,8 +86,8 @@ export class SearchComponent implements OnInit {
         this.hashParams.access_token
       )
       .subscribe(dataFromSpotify => {
-        this.artists = dataFromSpotify.artists.items;
-        console.log(dataFromSpotify.artists.items);
+        this.artists = dataFromSpotify;
+        console.log(this.artists.artists.items);
       });
   }
 

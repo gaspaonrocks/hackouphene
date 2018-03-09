@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
@@ -22,10 +23,11 @@ export class ImplicitGrantService {
     "&state=" +
     encodeURIComponent(spotifyConfig.state);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getCredentialsToken() {
-    return (window.location = this.targetUrl);
+    console.log(this.targetUrl);
+    return (window.location.href = this.targetUrl);
   }
 
   querySpotifyApi(query, accessToken) {
